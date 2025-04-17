@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-// Define the structure for a Task
 struct Task {
     char description[100];
-    int isCompleted;  // 0 for pending, 1 for completed
+    int isCompleted;  
 };
 
-// Function to add a task
 void addTask(struct Task tasks[], int *taskCount) {
     if (*taskCount >= 100) {
         printf("Task list is full!\n");
@@ -15,14 +13,13 @@ void addTask(struct Task tasks[], int *taskCount) {
     }
 
     printf("Enter task description: ");
-    scanf(" %[^\n]", tasks[*taskCount].description); // Read string with spaces
-    tasks[*taskCount].isCompleted = 0; // Mark as pending
+    scanf(" %[^\n]", tasks[*taskCount].description); 
+    tasks[*taskCount].isCompleted = 0; 
     (*taskCount)++;
 
     printf("Task added successfully!\n");
 }
 
-// Function to mark a task as completed
 void markTaskComplete(struct Task tasks[], int taskCount) {
     int taskNumber;
 
@@ -38,7 +35,6 @@ void markTaskComplete(struct Task tasks[], int taskCount) {
     printf("Task marked as completed!\n");
 }
 
-// Function to display tasks
 void displayTasks(struct Task tasks[], int taskCount) {
     printf("\n------ To-Do List ------\n");
 
@@ -52,14 +48,12 @@ void displayTasks(struct Task tasks[], int taskCount) {
     }
 }
 
-// Main function
 int main() {
-    struct Task tasks[100];  // Array to store up to 100 tasks
+    struct Task tasks[100]; 
     int taskCount = 0;
     int choice;
 
     do {
-        // Menu options
         printf("\nTo-Do List Manager\n");
         printf("1. Add Task\n");
         printf("2. Mark Task as Completed\n");
